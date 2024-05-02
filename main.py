@@ -16,10 +16,10 @@ class App:
         self.main_window = tk.Tk()
         self.main_window.geometry("1200x520+350+100")
 
-        self.login_button_main_window = util.get_button(self.main_window, 'login', 'green', self.login)
+        self.login_button_main_window = util.get_button(self.main_window, 'login', 'red', self.login,fg='black')
         self.login_button_main_window.place(x=750, y=200)
 
-        self.logout_button_main_window = util.get_button(self.main_window, 'logout', 'red', self.logout)
+        self.logout_button_main_window = util.get_button(self.main_window, 'logout', 'blue', self.logout,fg='black')
         self.logout_button_main_window.place(x=750, y=300)
 
         self.register_new_user_button_main_window = util.get_button(self.main_window, 'register new user', 'gray',
@@ -39,7 +39,7 @@ class App:
 
     def add_webcam(self, label):
         if 'cap' not in self.__dict__:
-            self.cap = cv2.VideoCapture(2)
+            self.cap = cv2.VideoCapture(0)
 
         self._label = label
         self.process_webcam()
@@ -60,7 +60,7 @@ class App:
 
         label = test(
                 image=self.most_recent_capture_arr,
-                model_dir='/home/phillip/Desktop/todays_tutorial/27_face_recognition_spoofing/code/face-attendance-system/Silent-Face-Anti-Spoofing/resources/anti_spoof_models',
+                model_dir='/Users/khushisinha/PycharmProjects/DL/face-attendance-system/Silent-Face-Anti-Spoofing/resources/anti_spoof_models',
                 device_id=0
                 )
 
@@ -83,7 +83,7 @@ class App:
 
         label = test(
                 image=self.most_recent_capture_arr,
-                model_dir='/home/phillip/Desktop/todays_tutorial/27_face_recognition_spoofing/code/face-attendance-system/Silent-Face-Anti-Spoofing/resources/anti_spoof_models',
+                model_dir='/Users/khushisinha/PycharmProjects/DL/face-attendance-system/Silent-Face-Anti-Spoofing/resources/anti_spoof_models',
                 device_id=0
                 )
 
@@ -107,10 +107,10 @@ class App:
         self.register_new_user_window = tk.Toplevel(self.main_window)
         self.register_new_user_window.geometry("1200x520+370+120")
 
-        self.accept_button_register_new_user_window = util.get_button(self.register_new_user_window, 'Accept', 'green', self.accept_register_new_user)
+        self.accept_button_register_new_user_window = util.get_button(self.register_new_user_window, 'Accept', 'green', self.accept_register_new_user,fg='black')
         self.accept_button_register_new_user_window.place(x=750, y=300)
 
-        self.try_again_button_register_new_user_window = util.get_button(self.register_new_user_window, 'Try again', 'red', self.try_again_register_new_user)
+        self.try_again_button_register_new_user_window = util.get_button(self.register_new_user_window, 'Try again', 'red', self.try_again_register_new_user,fg='black')
         self.try_again_button_register_new_user_window.place(x=750, y=400)
 
         self.capture_label = util.get_img_label(self.register_new_user_window)
